@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cd26563c6ccc1fc42a600623022bbb2d
+guid: 2f30e25ebd87c474ca7fa3fa7c0c9a55
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,7 +33,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Running
+      name: Jump Idle
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
@@ -48,10 +48,10 @@ ModelImporter:
       loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000

@@ -61,7 +61,6 @@ public class Unit_12_animatedJump : MonoBehaviour
         //v8 1D Blend Anim tree
         float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
 
-
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             inputMagnitude /= 2; //1/2 speed
@@ -78,6 +77,8 @@ public class Unit_12_animatedJump : MonoBehaviour
 
         //Normalize diretion vector so that it has a range of 0-1
         movementDirection.Normalize();
+
+        Physics.gravity = new Vector3(0, -10f, 0);
 
         //v4 - Jump. update ySpeed with Gravity
         ySpeed += Physics.gravity.y * Time.deltaTime;
@@ -100,7 +101,6 @@ public class Unit_12_animatedJump : MonoBehaviour
         {
 
             characterController.stepOffset = originalStepOffset;//reset characterController stepOffset
-            ySpeed = -0.5f;  //reset ySpeed 
             //v12 animated jump - player is grounded
             animator.SetBool("isGrounded", true);
             animator.SetBool("isJumping", false);
@@ -179,10 +179,11 @@ public class Unit_12_animatedJump : MonoBehaviour
     /// overrides default AnimatorMove behaviour. velocity calculation from update 
     /// gets moved here. 
     /// </summary>
-    private void OnAnimatorMove()
+    void OnAnimatorMove()
     {
         if (isGrounded)
         {
+
             //v11 velocity gets assigned from animator deltaPos -> positon change
             Vector3 velocity = animator.deltaPosition;
             // v4 - Jump. Local var vector3 velocity
@@ -197,7 +198,7 @@ public class Unit_12_animatedJump : MonoBehaviour
     /// Method that locks or unlocks cursor based on focus
     /// </summary>
     /// <param name="focus">boolean that determines the focus</param>
-    private void OnApplicationFocus(bool focus)
+    void OnApplicationFocus(bool focus)
     {
         if (focus)
         {
